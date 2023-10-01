@@ -1,4 +1,5 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/php/.devcontainer/base.Dockerfile
+# See here for image contents:
+# https://github.com/devcontainers/images/blob/main/src/php/.devcontainer/Dockerfile
 
 # [Choice] PHP version (use -bullseye variants on local arm64/Apple Silicon):
 # - 8, 8.1, 8.0, 7, 7.4, 7.3,

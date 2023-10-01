@@ -1,5 +1,6 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/php
+// For format details, see https://aka.ms/devcontainer.json.
+// For config options, see the README at:
+// https://github.com/devcontainers/images/tree/main/src/php
 {
 	"name": "PHP",
 	"build": {
