@@ -34,7 +34,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -58,7 +58,7 @@ jobs:
     needs: build-php
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -74,7 +74,7 @@ jobs:
     needs: build-php
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
@@ -90,7 +90,7 @@ jobs:
     needs: build-php
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -112,7 +112,7 @@ jobs:
       PHAN_ALLOW_XDEBUG: 0 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
