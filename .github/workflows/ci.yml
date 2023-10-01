@@ -75,7 +75,7 @@ jobs:
     - name: Pull MediaWiki ${{ matrix.mediawiki-version }} from release.wikimedia.org 
       run: wget -O /tmp/mw-dev/mediawiki.zip "https://releases.wikimedia.org/mediawiki/1.40/mediawiki-${{ matrix.mediawiki-version }}.zip"
     - name: Unzip MediaWiki ${{ matrix.mediawiki-version }} release
-      run: unzip -p /tmp/mw-dev/mediawiki.zip
+      run: unzip -p -q /tmp/mw-dev/mediawiki.zip
 
   lint-php:
     runs-on: ubuntu-latest
