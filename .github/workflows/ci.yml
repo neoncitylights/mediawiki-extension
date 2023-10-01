@@ -76,6 +76,18 @@ jobs:
       run: wget -O /tmp/mw-dev/mediawiki.zip "https://releases.wikimedia.org/mediawiki/1.40/mediawiki-${{ matrix.mediawiki-version }}.zip"
     - name: Unzip MediaWiki ${{ matrix.mediawiki-version }} release
       run: unzip -p -qq /tmp/mw-dev/mediawiki.zip
+    - name: Validate composer.json and composer.lock
+      run: composer validate --no-check-publish
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
 
   lint-php:
     runs-on: ubuntu-latest
