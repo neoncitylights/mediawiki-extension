@@ -35,7 +35,10 @@
 			"extensions": [
 				"xdebug.php-debug",
 				"bmewburn.vscode-intelephense-client",
-				"mrmlnc.vscode-apache"
+				"felixfbecker.php-debug",
+				"ikappas.composer",
+				"mrmlnc.vscode-apache",
+				"neilbrayfield.php-docblocker"
 			]
 		}
 	},
