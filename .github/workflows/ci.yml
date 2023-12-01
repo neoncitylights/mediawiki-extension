@@ -8,6 +8,7 @@ on:
   pull_request:
 
 env:
+  MEDIAWIKI_VERSION: 1.40.1
   PHP_LATEST: 8.2
   ENABLE_JOB_PHAN: true
 
@@ -47,6 +48,41 @@ jobs:
       with:
         php-version: ${{ matrix.php }}
         tools: composer:v2
+    - name: Validate composer.json and composer.lock
+      run: composer validate --no-check-publish
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
+
+  build-mediawiki:
+    name: build-mediawiki (${{ matrix.mediawiki-version }})
+    runs-on: ubuntu-latest
+    needs: build-php
+    strategy:
+      matrix:
+        mediawiki-version:
+          - 1.40.1
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ env.PHP_LATEST }}
+        tools: composer:v2
+    - name: Setup MediaWiki directory
+      run: mkdir /tmp/mw-dev
+    - name: Pull MediaWiki ${{ matrix.mediawiki-version }} from release.wikimedia.org 
+      run: wget -O /tmp/mw-dev/mediawiki.zip "https://releases.wikimedia.org/mediawiki/1.40/mediawiki-${{ matrix.mediawiki-version }}.zip"
+    - name: Unzip MediaWiki ${{ matrix.mediawiki-version }} release
+      run: unzip -p -qq /tmp/mw-dev/mediawiki.zip
     - name: Validate composer.json and composer.lock
       run: composer validate --no-check-publish
     - name: Cache Composer packages
