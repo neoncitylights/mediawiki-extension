@@ -13,6 +13,7 @@ env:
 
 jobs:
   build-php:
+    name: build-php (PHP v${{ matrix.php }}, experimental=${{ matrix.experimental }})
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
