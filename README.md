@@ -62,20 +62,28 @@ Then, in your MediaWiki's instance containing `LocalSettings.php`, add the follo
 wfLoadExtension( 'BoilerPlate' ); // Replace "BoilerPlate" with the name of your extension
 ```
 
+### Confirm the extension is working
+
+To confirm, visit `Special:Version` and `Special:HelloWorld`! E.g If you're running on port 8080, visit these links:
+
+- `http://localhost:8080/index.php?title=Special:Version`
+- `http://localhost:8080/index.php?title=Special:HelloWorld`
+
 ## Setup and configure
 
-- MediaWiki extension configuration: [`extension.json`](./extension.json) • [[docs](https://www.mediawiki.org/wiki/Manual:Extension.json), [schema reference](https://www.mediawiki.org/wiki/Manual:Extension.json/Schema)]
-- NPM configuration: [`package.json`](./package.json) • [[docs](https://docs.npmjs.com/cli/v9/configuring-npm/package-json), [website](https://www.npmjs.com/), [repo](https://github.com/npm/cli)]
-- Composer configuration: [`composer.json`](./composer.json) • [[docs](https://getcomposer.org/doc/04-schema.md), [website](https://getcomposer.org/), [repo](https://github.com/composer/composer)]
-- Localization and translated messages: [`i18n/`](./i18n/) • [[docs](https://www.mediawiki.org/wiki/Localisation)]
-- ESLint (JS linter): [`.eslintrc.json`](./.eslintrc.json), [`.eslintignore`](./.eslintignore) • [[docs](https://eslint.org/docs/latest/use/configure/), [website](https://eslint.org/), [repo](https://github.com/eslint/eslint)]
-- Gruntfile (JS task runner): [`Gruntfile.js`](./Gruntfile.js) • [[docs](https://gruntjs.com/configuring-tasks), [website](https://gruntjs.com/), [repo](https://github.com/gruntjs/grunt)]
-- Stylelint (CSS linter): [`.stylelintrc.json`](./.stylelintrc.json), [`.stylelintignore`](./.stylelintignore) • [[docs](https://stylelint.io/docs/user-guide/configuration), [website](https://stylelint.io/), [repo](https://github.com/stylelint/stylelint)]
-- PHPCS (PHP linter): [`phpcs.xml`](./phpcs.xml) • [[repo](https://github.com/squizlabs/PHP_CodeSniffer)]
-- Phan (PHP static analysis): [`.phan/config.php`](./.phan/config.php) • [[mw.org docs](https://www.mediawiki.org/wiki/Continuous_integration/Phan), [phan repo](https://github.com/phan/phan/), [mw plugin repo](https://gerrit.wikimedia.org/g/mediawiki/tools/phan/SecurityCheckPlugin)]
-- PHPUnit (PHP unit testing framework): [`phpunit.xml.dist`](./phpunit.xml.dist) • [[docs](https://docs.phpunit.de/en/10.2/configuration.html), [website](https://phpunit.de/), [repo](https://github.com/sebastianbergmann/phpunit)]
-- Psalm (PHP security analysis): [`psalm.xml`](./psalm.xml) • [[docs](https://psalm.dev/docs/running_psalm/configuration/), [website](https://psalm.dev/), [repo](https://github.com/vimeo/psalm)]
-- Dependabot (dependency update automation): [`.github/dependabot.yml`](./.github/dependabot.yml) • [[docs](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)]
+| Tool | Files | Links |
+| ---- | ----- | ----- |
+| MediaWiki extension configuration | [`extension.json`](./extension.json) | [docs](https://www.mediawiki.org/wiki/Manual:Extension.json), [schema reference](https://www.mediawiki.org/wiki/Manual:Extension.json/Schema) |
+| NPM configuration | [`package.json`](./package.json) | [docs](https://docs.npmjs.com/cli/v9/configuring-npm/package-json), [website](https://www.npmjs.com/), [repo](https://github.com/npm/cli) |
+| Composer configuration | [`composer.json`](./composer.json) | [docs](https://getcomposer.org/doc/04-schema.md), [website](https://getcomposer.org/), [repo](https://github.com/composer/composer) |
+| Localization and translated messages | [`i18n/`](./i18n/) | [docs](https://www.mediawiki.org/wiki/Localisation) |
+| Gruntfile (JS task runner) | [`Gruntfile.js`](./Gruntfile.js) | [docs](https://gruntjs.com/configuring-tasks), [website](https://gruntjs.com/), [repo](https://github.com/gruntjs/grunt) |
+| ESLint (JS linter) | [`.eslintrc.json`](./.eslintrc.json) | [docs](https://eslint.org/docs/latest/use/configure/), [website](https://eslint.org/), [repo](https://github.com/eslint/eslint) |
+| Stylelint (CSS linter) | [`.stylelintrc.json`](./.stylelintrc.json) | [docs](https://stylelint.io/docs/user-guide/configuration), [website](https://stylelint.io/), [repo](https://github.com/stylelint/stylelint) |
+| PHPCS (PHP linter) | [`phpcs.xml`](./phpcs.xml) | [repo](https://github.com/squizlabs/PHP_CodeSniffer) |
+| Phan (PHP static analysis) | [`.phan/config.php`](./.phan/config.php) | [mw.org docs](https://www.mediawiki.org/wiki/Continuous_integration/Phan), [phan repo](https://github.com/phan/phan/), [mw plugin repo](https://gerrit.wikimedia.org/g/mediawiki/tools/phan/SecurityCheckPlugin)
+| PHPUnit (PHP unit testing framework) | [`phpunit.xml.dist`](./phpunit.xml.dist) | [docs](https://docs.phpunit.de/en/10.2/configuration.html), [website](https://phpunit.de/), [repo](https://github.com/sebastianbergmann/phpunit) |
+| Dependabot (dependency updates) | [`.github/dependabot.yml`](./.github/dependabot.yml) | [docs](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) |
 
 ## Notes
 
@@ -111,7 +119,7 @@ There's a few different files you'll need to change.
   }
   ```
 
-- [`.github/workflows/ci.yml`](./.github/workflows/ci.yml): Change the `php-version` key in the `matrix` section.
+- [`.github/workflows/ci.yml`](./.github/workflows/ci.yml): Change the `php` key in the `matrix` section.
 - [`.phan/config.php`](./.phan/config.php): Change the `minimum_target_php_version` key.
 - [`README.md`](./README.md): Change your main, **user-facing** documentation where the system requirements section is to reflect the minimum PHP version.
 

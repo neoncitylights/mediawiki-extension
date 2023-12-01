@@ -11,6 +11,13 @@ updates:
     labels:
       - "t-dependencies"
       - "pkg-composer"
+    groups:
+      mediawiki:
+        patterns:
+          - "mediawiki/*"
+      php-parallel-lint:
+        patterns:
+          - "php-parallel-lint/*"
     open-pull-requests-limit: 4
 
   - package-ecosystem: "npm"
@@ -22,6 +29,12 @@ updates:
     labels:
       - "t-dependencies"
       - "pkg-npm"
+    groups:
+      mediawiki:
+        patterns:
+          - "grunt-*"
+          - "eslint-config-wikimedia"
+          - "stylelint-config-wikimedia"
     open-pull-requests-limit: 4
 
   - package-ecosystem: "github-actions"
@@ -30,7 +43,6 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "chore(deps/actions):"
-      include: "scope"
     labels:
       - "t-dependencies"
       - "pkg-gh-actions"

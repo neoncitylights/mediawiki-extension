@@ -13,7 +13,9 @@ env:
 
 jobs:
   build-php:
+    name: build-php (PHP v${{ matrix.php }}, experimental=${{ matrix.experimental }})
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
         php: 
@@ -31,10 +33,15 @@ jobs:
           - '7.4.3'
           - '8.1'
           - '8.2'
+        experimental:
+          - false
+        include:
+          - php: '8.3'
+            experimental: true
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -58,7 +65,7 @@ jobs:
     needs: build-php
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -74,9 +81,9 @@ jobs:
     needs: build-php
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: latest
         cache: 'npm'
@@ -90,7 +97,7 @@ jobs:
     needs: build-php
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -112,7 +119,7 @@ jobs:
       PHAN_ALLOW_XDEBUG: 0 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -122,7 +129,7 @@ jobs:
       run: composer install --prefer-dist --no-progress
     - name: Install php-ast dependency
       run: sudo apt-get install -y php-ast
-    - name: Run PHPUnit tests
+    - name: Run Phan tests
       run: composer phan
       continue-on-error: true
 
