@@ -1,48 +1,51 @@
-// For format details, see https://aka.ms/devcontainer.json.
-// For config options, see the README at:
-// https://github.com/devcontainers/images/tree/main/src/php
 {
-	"name": "PHP",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"args": { 
-			// Update VARIANT to pick a PHP version: 8, 8.1, 8.0, 7, 7.4
-			// Append -bullseye or -buster to pin to an OS version.
-			// Use -bullseye variants on local on arm64/Apple Silicon.
-			"VARIANT": "8.1-apache-bullseye",
-			"NODE_VERSION": "16"
+		"dockerfile": "./Dockerfile",
+		"context": "."
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"upgradePackages": "true"
+		},
+		"./local-features/apache-config": "latest",
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "20"
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest",
+			"ppa": "false"
 		}
 	},
-
-	// Set *default* container specific settings.json values on container create.
+	"overrideFeatureInstallOrder": [
+		"ghcr.io/devcontainers/features/common-utils"
+	],
+	// Configure tool-specific properties.
 	"customizations": {
+		// Configure properties specific to VS Code.
 		"vscode": {
-			"settings": { 
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
 				"php.validate.executablePath": "/usr/local/bin/php"
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"aaron-bond.better-comments",
+				"xdebug.php-debug",
 				"bmewburn.vscode-intelephense-client",
-				"felixfbecker.php-debug",
-				"ikappas.composer",
-				"lextudio.restructuredtext",
-				"mrmlnc.vscode-apache",
-				"neilbrayfield.php-docblocker"
+				"mrmlnc.vscode-apache"
 			]
 		}
 	},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [8080],
-
+	// "forwardPorts": [
+	//     8080
+	// ],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode",
-	"features": {
-		"git": "latest",
-		"github-cli": "latest"
-	}
+	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
 }
