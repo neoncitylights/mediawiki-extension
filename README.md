@@ -78,8 +78,8 @@ To confirm, visit `Special:Version` and `Special:HelloWorld`! E.g If you're runn
 | Composer configuration | [`composer.json`](./composer.json) | [docs](https://getcomposer.org/doc/04-schema.md), [website](https://getcomposer.org/), [repo](https://github.com/composer/composer) |
 | Localization and translated messages | [`i18n/`](./i18n/) | [docs](https://www.mediawiki.org/wiki/Localisation) |
 | Gruntfile (JS task runner) | [`Gruntfile.js`](./Gruntfile.js) | [docs](https://gruntjs.com/configuring-tasks), [website](https://gruntjs.com/), [repo](https://github.com/gruntjs/grunt) |
-| ESLint (JS linter) | [`.eslintrc.json`](./.eslintrc.json), [`.eslintignore`](./.eslintignore) | [docs](https://eslint.org/docs/latest/use/configure/), [website](https://eslint.org/), [repo](https://github.com/eslint/eslint) |
-| Stylelint (CSS linter) | [`.stylelintrc.json`](./.stylelintrc.json), [`.stylelintignore`](./.stylelintignore) | [docs](https://stylelint.io/docs/user-guide/configuration), [website](https://stylelint.io/), [repo](https://github.com/stylelint/stylelint) |
+| ESLint (JS linter) | [`.eslintrc.json`](./.eslintrc.json) | [docs](https://eslint.org/docs/latest/use/configure/), [website](https://eslint.org/), [repo](https://github.com/eslint/eslint) |
+| Stylelint (CSS linter) | [`.stylelintrc.json`](./.stylelintrc.json) | [docs](https://stylelint.io/docs/user-guide/configuration), [website](https://stylelint.io/), [repo](https://github.com/stylelint/stylelint) |
 | PHPCS (PHP linter) | [`phpcs.xml`](./phpcs.xml) | [repo](https://github.com/squizlabs/PHP_CodeSniffer) |
 | Phan (PHP static analysis) | [`.phan/config.php`](./.phan/config.php) | [mw.org docs](https://www.mediawiki.org/wiki/Continuous_integration/Phan), [phan repo](https://github.com/phan/phan/), [mw plugin repo](https://gerrit.wikimedia.org/g/mediawiki/tools/phan/SecurityCheckPlugin)
 | PHPUnit (PHP unit testing framework) | [`phpunit.xml.dist`](./phpunit.xml.dist) | [docs](https://docs.phpunit.de/en/10.2/configuration.html), [website](https://phpunit.de/), [repo](https://github.com/sebastianbergmann/phpunit) |
