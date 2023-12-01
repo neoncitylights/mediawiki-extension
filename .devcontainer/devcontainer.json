@@ -33,12 +33,12 @@
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"xdebug.php-debug",
 				"bmewburn.vscode-intelephense-client",
 				"felixfbecker.php-debug",
 				"ikappas.composer",
 				"mrmlnc.vscode-apache",
-				"neilbrayfield.php-docblocker"
+				"neilbrayfield.php-docblocker",
+				"xdebug.php-debug"
 			]
 		}
 	},
