@@ -8,14 +8,22 @@ on:
 
 jobs:
   build:
+    name: mediawiki-build (${{ matrix.quibble_image }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - quibble_image: quibble-buster-php74
+          - quibble_image: quibble-buster-php80
+          - quibble_image: quibble-buster-php81
+          - quibble_image: quibble-buster-php82
     env:
       quibble_image: quibble-buster-php74
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install quibble
-        run: docker pull docker-registry.wikimedia.org/releng/${{ quibble_image }}:latest
+        run: docker pull docker-registry.wikimedia.org/releng/${{ matrix.quibble_image }}:latest
       - name: Initialize bare git repositories
         run: |
           mkdir -p ref/mediawiki/skins
@@ -37,4 +45,4 @@ jobs:
             -v "$(pwd)"/log:/workspace/log \
             -v "$(pwd)"/ref:/srv/git:ro \
             -v "$(pwd)"/src:/workspace/src \
-            docker-registry.wikimedia.org/releng/${{ quibble_image }}:latest
+            docker-registry.wikimedia.org/releng/${{ matrix.quibble_image }}:latest
