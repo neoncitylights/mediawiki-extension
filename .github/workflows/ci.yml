@@ -13,7 +13,9 @@ env:
 
 jobs:
   build-php:
+    name: build-php (PHP v${{ matrix.php }}, experimental=${{ matrix.experimental }})
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
         php: 
@@ -31,6 +33,11 @@ jobs:
           - '7.4.3'
           - '8.1'
           - '8.2'
+        experimental:
+          - false
+        include:
+          - php: '8.3'
+            experimental: true
 
     steps:
     - name: Checkout repository
