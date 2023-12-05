@@ -3,5 +3,5 @@
 $specialPageAliases = [];
 
 $specialPageAliases['en'] = [
-    'HelloWorld' => [ 'HelloWorld' ],
+	'HelloWorld' => [ 'HelloWorld' ],
 ];
