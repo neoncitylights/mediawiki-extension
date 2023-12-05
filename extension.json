@@ -22,7 +22,7 @@
 		}
 	},
 	"ExtensionMessagesFiles": {
-		"{{extension-uc}}Aliases": "includes/{{extension-lc}}.i18n.alias.php"
+		"{{extension-uc}}Aliases": "includes/{{extension-uc}}.i18n.alias.php"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
