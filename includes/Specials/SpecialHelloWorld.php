@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\MyExtension\Specials;
+namespace MediaWiki\Extension\ExtensionUc\Specials;
 
 use SpecialPage;
 
