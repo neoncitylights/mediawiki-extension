@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\MyCoolExtension\Specials;
+namespace MediaWiki\Extension\MyExtension\Specials;
 
 use SpecialPage;
 
@@ -21,6 +21,6 @@ class SpecialHelloWorld extends SpecialPage {
 	public function execute( $sub ) {
 		$this->setHeaders();
 		$this->outputHeader();
-		$this->getOutput()->addWikiMsg( 'mycoolextension-helloworld' );
+		$this->getOutput()->addWikiMsg( '{{extension-lc}}-helloworld' );
 	}
 }

@@ -44,7 +44,7 @@ gh repo create {{extension-uc}} --clone --template neoncitylights/mediawiki-exte
 Using your favorite text editor or IDE, find-and-replace the following placeholders:
 
 - `{{author}}`: Your own username/nickname, name, or organization
-- `{{extension-uc}}`: Name of your extension in upper CamelCase
+- `{{extension-uc}}`, `MyExtension`: Name of your extension in upper CamelCase
 - `{{extension-lc}}`: Name of your extension in lowercase
 
 ### Running the extension locally
